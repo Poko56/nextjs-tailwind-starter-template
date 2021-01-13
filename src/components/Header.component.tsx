@@ -53,7 +53,7 @@ const Header: React.FC = () => {
                     : " border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
 
                 return (
-                  <Link href={item.href} key={item.href}>
+                  <Link href={item.href} key={`gmenu_${item.name}`}>
                     <a className={className}>{item.name}</a>
                   </Link>
                 )
