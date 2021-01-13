@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
 type LinkProps = {
   name: string
@@ -8,7 +9,7 @@ type LinkProps = {
 
 const GlobalMenuData = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about/" },
+  { name: "About", href: "/about" },
 ]
 
 const UserMenuData = [
@@ -20,6 +21,7 @@ const UserMenuData = [
 const Header: React.FC = () => {
   const [isSPMenuOpen, setSPMenuOpen] = useState(false)
   const [isUserMenuOpen, setUserMenuOpen] = useState(false)
+  const { pathname } = useRouter()
 
   const handleSPMenuClick = () => {
     setSPMenuOpen(!isSPMenuOpen)
@@ -42,13 +44,20 @@ const Header: React.FC = () => {
               </h1>
             </div>
             <div className="hidden sm:-my-px sm:ml-12 sm:flex sm:space-x-8">
-              {GlobalMenuData.map((item: LinkProps) => (
-                <Link href={item.href} key={item.href}>
-                  <a className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                    {item.name}
-                  </a>
-                </Link>
-              ))}
+              {GlobalMenuData.map((item: LinkProps) => {
+                let className =
+                  "inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                className +=
+                  item.href === pathname
+                    ? " border-indigo-500 text-gray-900"
+                    : " border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
+
+                return (
+                  <Link href={item.href} key={item.href}>
+                    <a className={className}>{item.name}</a>
+                  </Link>
+                )
+              })}
             </div>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
