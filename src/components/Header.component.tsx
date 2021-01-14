@@ -45,7 +45,7 @@ const Header: React.FC = () => {
                     : " border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
 
                 return (
-                  <Link href={item.href} key={`gmenu_${item.name}`}>
+                  <Link href={item.href} key={`gmenu_pc_${item.name}`}>
                     <a className={className}>{item.name}</a>
                   </Link>
                 )
@@ -97,7 +97,7 @@ const Header: React.FC = () => {
                   aria-labelledby="user-menu"
                 >
                   {UserMenuData.map((item: LinkProps) => (
-                    <Link href={item.href} key={item.href}>
+                    <Link href={item.href} key={item.name}>
                       <a
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                         role="menuitem"
@@ -155,7 +155,7 @@ const Header: React.FC = () => {
       <div className={`${isSPMenuOpen ? "" : "hidden"} sm:hidden`}>
         <div className="pt-2 pb-3 space-y-1">
           {GlobalMenuData.map((item: LinkProps) => (
-            <Link href={item.href} key={item.href}>
+            <Link href={item.href} key={`gmenu_sp_${item.href}`}>
               <a
                 className="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                 onClick={() => setSPMenuOpen(false)}
