@@ -1,7 +1,7 @@
-import Base from "@components/Base.component"
-import styles from "@styles/Home.module.css"
+import Base from '@components/Base.component'
+import styles from '@styles/Home.module.css'
 
-function Home() {
+function Home(): JSX.Element {
   return (
     <Base title="Home Page">
       <h1 className={styles.title}>Home Page</h1>
