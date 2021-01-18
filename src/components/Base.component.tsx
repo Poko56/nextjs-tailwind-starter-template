@@ -1,10 +1,10 @@
-import React from "react"
-import Head from "next/head"
+import React from 'react'
+import Head from 'next/head'
 
-import Header from "@components/Header.component"
-import styles from "@styles/Home.module.css"
+import Header from '@components/Header.component'
+import styles from '@styles/Home.module.css'
 
-const Base: React.FC<{ title: string; children: any }> = ({
+const Base: React.FC<{ title: string; children: React.ReactNode }> = ({
   title,
   children,
 }) => (
